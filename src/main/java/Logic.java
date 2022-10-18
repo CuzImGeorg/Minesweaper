@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.util.Objects;
 import java.util.Random;
 
 public class Logic {
@@ -158,7 +159,7 @@ public class Logic {
                                 if(aufgedeckteMines < ahnzahl_minen) {
                                     btn_array[i][j].setBackground(Color.red);
 
-                                    ImageIcon temp = new ImageIcon("src/main/java/com/go/Minesweaper/flag.png");
+                                    ImageIcon temp = new ImageIcon(Objects.requireNonNull(getClass().getResource(("/flag.png"))));
                                     Image img = temp.getImage();
                                     Image newimg = img.getScaledInstance(btn_array[i][j].getWidth(), btn_array[i][j].getHeight(), Image.SCALE_SMOOTH);
                                     ImageIcon newIcon = new ImageIcon(newimg);
@@ -188,7 +189,7 @@ public class Logic {
             for (int j = 0; j < (int) Math.sqrt(mines); j++) {
                 if(spielfeld[i][j] == -1){
                     btn_array[i][j].setBackground(Color.red);
-                    ImageIcon temp = new ImageIcon("src/main/java/com/go/Minesweaper/bombe.png");
+                    ImageIcon temp = new ImageIcon(Objects.requireNonNull(getClass().getResource("/bombe.png")));
                     Image img = temp.getImage();
                     Image newimg = img.getScaledInstance(btn_array[i][j].getWidth(), btn_array[i][j].getHeight(), Image.SCALE_SMOOTH);
                     ImageIcon newIcon = new ImageIcon(newimg);

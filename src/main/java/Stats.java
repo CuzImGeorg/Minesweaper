@@ -74,8 +74,8 @@ public class Stats extends JPanel {
     private void readImage() {
 
         try {
-            BufferedImage a = ImageIO.read(new File("src/main/java/com/go/Minesweaper/mine.png"));
-            BufferedImage uhr = ImageIO.read(new File("src/main/java/com/go/Minesweaper/uhr.png"));
+            BufferedImage a = ImageIO.read(getClass().getResource("/mine.png"));
+            BufferedImage uhr = ImageIO.read(getClass().getResource("/uhr.png"));
             minepng = new JLabel(new ImageIcon(a));
             minepng.setBounds(75,10, 50,50);
             add(minepng);
@@ -124,7 +124,7 @@ public class Stats extends JPanel {
     public void safescore(String s){
         FileWriter fw = null;
         try {
-            fw = new FileWriter("src/main/java/com/go/Minesweaper/scores_" + Simulator.getD().getDif().toLowerCase() + ".txt");
+            fw = new FileWriter(getClass().getResource("/scores_" + Simulator.getD().getDif().toLowerCase() + ".txt").getFile());
             String w = "";
             for(String temp: scores){
                  w += temp+ System.lineSeparator();
@@ -141,8 +141,7 @@ public class Stats extends JPanel {
             Scanner s = null;
 
             try {
-                File file = new File("src/main/java/com/go/Minesweaper/scores_" + Simulator.getD().getDif().toLowerCase() + ".txt");
-
+                File file = new File(getClass().getResource("/scores_" + Simulator.getD().getDif().toLowerCase() + ".txt").getFile());
                 s  = new Scanner(file);
             }catch (FileNotFoundException e) {
 
